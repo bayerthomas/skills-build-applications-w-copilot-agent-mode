@@ -19,6 +19,8 @@ from django.urls import path, include
 from rest_framework import routers
 from .views import UserViewSet, TeamViewSet, ActivityViewSet, LeaderboardViewSet, WorkoutViewSet, api_root
 
+
+# Dynamische Codespace-URL für API-Dokumentation
 codespace_name = os.environ.get('CODESPACE_NAME')
 if codespace_name:
     base_url = f"https://{codespace_name}-8000.app.github.dev"
@@ -37,3 +39,7 @@ urlpatterns = [
     path('api/', api_root, name='api-root'),
     path('api/', include(router.urls)),
 ]
+
+# Hinweis: Die REST API Endpunkte sind erreichbar unter:
+# f"{base_url}/api/[component]/"
+# Beispiel: f"{base_url}/api/activities/"
